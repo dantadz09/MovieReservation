@@ -1,0 +1,42 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  
+.menu-container {
+display: flex;
+align-items: center;
+}
+
+.search-bar {
+margin-top: 25px;
+margin-left: auto;
+}
+
+.title{
+    text-align: center;
+}
+
+.ant-layout-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: #001529;
+  color: white;
+  padding: 10px; /* Adjust the padding as needed */
+}
+
+.movie-container {
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+  }
+  
+  .movie-item {
+    flex: 0 0 calc(20% - 20px); /* Take up half of the container's width, minus the margin */
+    margin: 0 10px; /* Add spacing between items */
+    text-align: center; /* Center align content */
+  }
+  
