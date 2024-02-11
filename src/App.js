@@ -1,0 +1,26 @@
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import Home from './Home/Home'
+import Schedule from './Schedule/Schedule';
+import React from 'react';
+import Seat from './Seat/Seat';
+import Navbar from './components/Navbar';
+import AppFooter from './components/Footer';
+import Cancel from './Cancel/Cancel';
+function App() {
+  return (
+    <div>
+      <Navbar/>
+      <BrowserRouter>
+      <Routes>
+      <Route path='*' element = {<Home/>}/>
+      <Route path='/schedule' element = {<Schedule/>}/>
+      <Route path='/seat' element = {<Seat/>}/>
+      <Route path= '/cancel' element = {<Cancel/>}/>
+      </Routes>
+      </BrowserRouter>
+      <AppFooter/>
+    </div>
+  );  
+}
+
+export default App;
