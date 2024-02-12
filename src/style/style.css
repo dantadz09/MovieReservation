@@ -1,10 +1,10 @@
 .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 64px;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
 .menu-container {
 display: flex;
 align-items: center;
@@ -16,27 +16,75 @@ margin-left: auto;
 }
 
 .title{
-    text-align: center;
+  text-align: center;
 }
 
 .ant-layout-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background: #001529;
-  color: white;
-  padding: 10px; /* Adjust the padding as needed */
+position: fixed;
+bottom: 0;
+width: 100%;
+text-align: center;
+background: #001529;
+color: white;
+padding: 10px; 
 }
 
-.movie-container {
-    display: flex; /* Use flexbox */
-    flex-wrap: wrap; /* Allow items to wrap onto the next line */
-  }
-  
-  .movie-item {
-    flex: 0 0 calc(20% - 20px); /* Take up half of the container's width, minus the margin */
-    margin: 0 10px; /* Add spacing between items */
-    text-align: center; /* Center align content */
-  }
-  
+.button-style {
+background-color: #001529;
+border-color: #001529;
+color: white;
+margin-right: 3em;
+width: 10em;
+height: 3em;
+font-size: 18px; 
+}
+
+
+.cancel-container {
+border: 1px solid #001529;
+padding: 20px; 
+margin: 3em auto 0; 
+width: 80%; 
+max-width: 60em; 
+box-sizing: border-box; 
+border-radius: 10px;
+height: 25em;
+}
+.back-container{ 
+margin: 3em auto 0; 
+width: 80%; 
+max-width: 60em; 
+box-sizing: border-box; 
+
+}
+.reserve-container {
+background-color: #001529; 
+border: 1px solid #001529;
+padding: 10px; 
+margin: 1em auto 0; 
+width: 80%; 
+max-width: 10em; 
+box-sizing: border-box; 
+border-radius: 10px;
+text-align: center;
+color: white;
+}
+
+.screen-box {
+background-color: #001529; 
+border: 1px solid #001529;
+margin-top: 1em;
+padding: 1px; 
+width: 100%; 
+max-width: 30em; 
+box-sizing: border-box; 
+border-radius: 10px;
+text-align: center;
+color: white;
+margin-left: 5em;
+}
+.info-box {
+margin-left: 45em;
+border-left: 1px solid gray;
+padding-left: 10px; 
+}

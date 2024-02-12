@@ -1,21 +1,24 @@
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import Home from './Home/Home';
+import Schedule from './Schedule/Schedule'
 import React from 'react';
+import Seat from './Seat/Seat';
 import Navbar from './components/Navbar';
-import { DatePicker } from 'antd';
-import MyCarousel from './components/MyCarousel';
-import AppFooter from './components/Footer';
+import Cancel from './Cancel/Cancel';
 function App() {
   return (
-    <div className="App">
-        <Navbar/>
-        <div className = 'title'>
-        <h1>Now Showing</h1>
-
-        <DatePicker />
-        </div>
-        <MyCarousel/>
-        <AppFooter/>
+    <div>
+      <Navbar/>
+      <BrowserRouter>
+      <Routes>
+        <Route path='*' element = {<Home/>}/>
+      <Route path='/schedule' element = {<Schedule/>}/>
+      <Route path='/seat' element = {<Seat/>}/>
+      <Route path= '/cancel' element = {<Cancel/>}/>
+      </Routes>
+      </BrowserRouter>
     </div>
-  );
+  );  
 }
 
 export default App;
