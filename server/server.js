@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const movieController = require('./controllers/movieController');
 const reserveController = require('./controllers/reserveController');
 const getAllMovieController = require('./controllers/getAllMovieController');
+const scheduleController = require('./controllers/scheduleController');
 app.use(cors({
   origin: 'http://localhost:3000', // Replace with the origin of your client
 }));
@@ -21,6 +22,8 @@ app.use('/api', movieController);
 app.use('/api', reserveController);
 
 app.use('/api', getAllMovieController)
+
+app.use('/api', scheduleController);
 
 app.listen(1337, () => {
     console.log('Server started on 1337');
