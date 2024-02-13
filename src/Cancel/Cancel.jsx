@@ -2,10 +2,10 @@ import React from 'react'
 import axios from 'axios';
 import { useState } from 'react'
 import { useEffect } from 'react';
-import { FaEdit } from 'react-icons/fa';
 
 function Cancel() {
   const [reservations, setReservations] = useState([]);
+  const [delButtonClicked, setdelButtonClicked] = useState(false);
 
   useEffect(() => {
     const getReservations = async () => {
@@ -20,6 +20,16 @@ function Cancel() {
     getReservations();
   }, []);
 
+  const handleDelButtonClick = async (reservationId) => {
+    try {
+      const response = await axios.post(`http://127.0.0.1:1337/api/update-reservation/${reservationId}`, {
+        "is_cancelled": true
+      });
+      setdelButtonClicked(true);
+    } catch (error) {
+      console.error('Error', error);
+    }
+  }
 
   return (
     <div className='container'>
@@ -40,19 +50,25 @@ function Cancel() {
                   <th>Total</th>
                   <th>Senior Citizen</th>
                   <th>PWD</th>
-                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
                 {reservations.map(reservation => (
                   <tr key={reservation._id}>
                     <td>{reservation.mov_ID.title}</td>
-                    <td>{reservation.airing_time}</td>
+                    <td>{reservation.mov_ID.airing_time.map((time, index) => (
+                       <p key={index}>
+                        {time.start_time}
+                        {/* <td>{time.end_time}</td> */}
+                        </p>
+                    ))}
+                    </td>
                     <td>{reservation.seat.map(seat => seat.seatNumber).join(', ')}</td>
                     <td>{reservation.total_price}</td>
                     <td>{reservation.discount.senior_citizen ? 'Yes' : 'No'}</td>
                     <td>{reservation.discount.pwd ? 'Yes' : 'No'}</td>
-                    <td><button>Edit</button></td>
+                    <td><button onClick={() => handleDelButtonClick(reservation._id)}>Delete</button></td>
                   </tr>
                 ))}
               </tbody>
