@@ -20,12 +20,25 @@ function Cancel() {
     getReservations();
   }, []);
 
+
+  // let text = "Press a button!\nEither OK or Cancel.";
+  // if (confirm(text) == true) {
+  //   text = "You pressed OK!";
+  // } else {
+  //   text = "You canceled!";
+  // }
+  // document.getElementById("demo").innerHTML = text;
+
   const handleDelButtonClick = async (reservationId) => {
     try {
-      const response = await axios.post(`http://127.0.0.1:1337/api/update-reservation/${reservationId}`, {
-        "is_cancelled": true
-      });
-      setdelButtonClicked(true);
+      let text = "Are you sure?";
+      if (window.confirm(text) == true) {
+        const response = await axios.post(`http://127.0.0.1:1337/api/update-reservation/${reservationId}`, {
+          "is_cancelled": true
+        });
+        setdelButtonClicked(true);
+        window.location.reload();
+      } 
     } catch (error) {
       console.error('Error', error);
     }
